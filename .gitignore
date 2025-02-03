@@ -402,6 +402,7 @@ FodyWeavers.xsd
 # Ignore Python cache
 backend/api/__pycache__/
 backend/backend/__pycache__/
+__pycache__/
 *.pyc
 *.pyo
 *.pyd
