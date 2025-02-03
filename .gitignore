@@ -398,3 +398,10 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+
+# Ignore Python cache
+backend/api/__pycache__/
+backend/backend/__pycache__/
+*.pyc
+*.pyo
+*.pyd

@@ -6,18 +6,21 @@ LANGUAGES = {
 	"Turkish": "tr",
 }
 
+morphology = TurkishMorphology.create_with_defaults()
+
 def decompose_word(request):
 	word = request.GET.get('word', '')
 	language = request.GET.get('language', '')
 	# need to use stanza to get the components of the requested word
 	# use the given language
-	components = ["example", "decomposition"]
+	# placeholder: components = ["example", "decomposition"]
+	components = get_components(word, 'Turkish')
 	return JsonResponse({'word': word, 'components': components, 'language': language})
 
 def get_components(word, language):
 	# use zemberek
-	print("zemberek")
-	results = morphology.analyze("kalemin")
+	results = morphology.analyze(word)
+	results_list = []
 	for result in results:
-		print(result)
-	print("\n")
+		results_list.append(str(result))
+	return results_list
