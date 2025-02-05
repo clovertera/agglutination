@@ -8,6 +8,22 @@ LANGUAGES = {
 }
 
 morphology = TurkishMorphology.create_with_defaults()
+path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+deriv_path = os.path.join(path, 'feature_descriptions_derivation.txt')
+inflec_path = os.path.join(path, 'feature_descriptions_inflectional.txt')
+
+# create lists of lists (each nested list is a key and its description)
+with open(deriv_path) as deriv:
+	deriv_text = [line.strip().split("\t") for line in deriv]
+
+with open(inflec_path) as inflec:
+	inflec_text = [line.strip().split("\t") for line in inflec]
+
+total_dict = {}
+for pair in deriv_text:
+	total_dict[pair[0]] = pair[1]
+for pair in inflec_text:
+	total_dict[pair[0]] = pair[1]
 
 def decompose_word(request):
 	word = request.GET.get('word', '')
@@ -35,24 +51,29 @@ def make_human_readable(interpretation):
 	interpretation = [word for word in interpretation if word]
 	interpretation[1] = interpretation[1].lstrip()
 
-	print("Performing regex on this string: " + interpretation[1])
+	#print("Performing regex on this string: " + interpretation[1])
 	word_feat = r"(\w+:(?:\w+→\w+|\w+))" # word:feature or word:feature->feature
 	pattern = r"{}(?:\+{})*(?:\|{})?".format(word_feat, word_feat, word_feat)
 
+	# TODO: add regex capability for solo parts like A3sg? maybe?
 	regex_matches = re.findall(pattern, interpretation[1])
-	dict = {}
+	#print("matches")
+	#print(regex_matches)
+	feat_dict = {}
 	for match in regex_matches:
 		for elem in match:
 			if elem:
 				elem = elem.split(':')
-				dict[elem[0]] = elem[1]
-	print(dict)
-
-	path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-	path = os.path.join(path, 'human_readable_features.txt')
-	human_readable_file = open(path)
+				feat_dict[elem[0]] = elem[1]
+				
+	# TODO: IMPORTANT: add basic parts of speech (noun, verb etc) and stem
+	# TODO: implement faster lookup. this is TEMPORARY
 
 	# match each feature with feature value name and output a human readable description/blurb
-
-	human_readable_file.close()
+	
+	# TODO: formatting for each entry
+	#print(feat_dict)
+	for key, value in feat_dict.items():
+		if value in total_dict:
+			print(f"{key} : {value} ... {total_dict[value]}")
 	
