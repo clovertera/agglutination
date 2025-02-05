@@ -1,0 +1,43 @@
+Abl	Ablative case
+Acc	Accusative case
+Bare	Caseless
+Dat	Dative case
+Gen	Genitive case
+Ins	Instrumental / Comitative case
+Loc	Locative case
+Nom	Nominative case
+True	Contrastive
+CndCop	Conditional copula
+EvCop	Evidential copula
+GenCop	Generalizing copula
+PastCop	Past copula
+PresCop	Present copula
+Dist	Distributive
+Ord	Ordinal
+A3pl	3rd person plural (marked on nominals)
+A3sg	3rd person singular (marked on nominals)
+V1pl	1st person plural (marked on verbals)
+V2pl	2nd person plural (marked on verbals)
+V3pl	3rd person plural (marked on verbals)
+V1sg	1st person singular (marked on verbals)
+V2sg	2nd person singular (marked on verbals)
+V3sg	3rd person singular (marked on verbals)
+Neg	Negative polarity
+Pos	Positive polarity
+P2pl	2nd person plural possessive
+P1pl	1st person plural possessive
+P3pl	3rd person possessive
+P1sg	1st person singular possessive
+P2sg	2nd person singular possessive
+P3sg	3rd person singular possessive
+Pnon	None possessive
+Aor	Aorist tense
+Desr	Desire / Past Auxiliary
+Fut	Future tense
+Imp	Imperative
+Nar	Narrative past tense / Perfective-Evidential
+Nec	Necesssitative / Obligative
+Opt	Optative
+Past	Past tense / Perfective
+Prog1	Progressive tense 1 / Imperfective 1
+Prog2	Progressive tense 2 / Imperfective 2

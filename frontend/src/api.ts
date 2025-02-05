@@ -2,7 +2,7 @@
 
 import axios from 'axios';
 
-// func to call django backend api
+// react helper func to call django backend api
 export const decomposeWord = async (word: string, language: string) => {
     try {
         // make a GET request to backend API

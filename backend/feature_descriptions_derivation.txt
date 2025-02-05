@@ -1,0 +1,62 @@
+Able	Ability
+Acq	Acquire
+Act	According to
+Aff	Affinity
+After	After doing so
+Agt	Agentive
+Alm	Almost
+AorNom	Aorist Nominalizer
+AorPart	Aorist Participle
+Apostrophe	Apostrophe
+As	As
+AsIf	As if
+Bcm	Become
+By	By
+Cau	Causative
+Coll	Collective
+Dim	Diminutive
+Doct	Doctrine
+Ever	Ever
+Fam	Family
+Foll	Follower
+For	For
+From	From
+FutNom	Future Nominalizer
+FutPart	Future Participle
+Ger	Gerund
+Haste	Haste
+Inf	Infinitive
+Inh	Inherent
+Inter	Inter
+Lang	Language
+Like	Like
+Ly	Adverbial
+Make	Make
+Ness	Ness
+Nonf	Nonfinite
+Of	Of
+Pass	Passive
+PastNom	Past Nominalizer
+PastPart	Past Participle
+PerNom	Perfective Nominalizer
+PerPart	Perfective Participle
+PresNom	Present Nominalizer
+PresPart	Present Participle
+Pron	Pronominalizer
+ProNom	Progressive Nominalizer
+ProPart	Progressive Participle
+Rcp	Reciprocal
+Rel	Relativizer
+Rfx	Reflexive
+Rpt	Repetitive
+Rtd	Related
+Sim	Similar
+Sincb	Since before
+Since	Since
+Snd	Sound
+Start	Start
+Stay	Stay
+When	When
+While	While
+With	With
+Wout	Without
