@@ -1,15 +1,28 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import { useState } from 'react';
+import reactLogo from './assets/react.svg';
+import './App.css';
 import { decomposeWord } from './api';
-import Dropdown from 'react-dropdown'
-import 'react-dropdown/style.css';
+import Dropdown from 'react-dropdown';
+import WordAnalysis from "./components/WordAnalysis";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
     const [count, setCount] = useState(0)
     const [word, setWord] = useState('');
-    const [decomposed, setDecomposed] = useState(null);
-    // think about if key-value pair is better here or if simple strings are ok
+    interface Features {
+        [key: string]: string | string[];
+    }
+    interface Interpretation {
+        zemberek_analysis: string;
+        morphological_features: Features[][];
+    }
+    interface AnalysisData {
+        word: string;
+        interpretations: Interpretation[];
+        language: string;
+    }
+    const [decomposed, setDecomposed] = useState<AnalysisData | null>(null);
+
     const languageOptions = [
         'Turkish',
         'Japanese',
@@ -59,9 +72,12 @@ function App() {
           {decomposed && (
               <div>
                   <h3>Decomposed Word:</h3>
+                  {decomposed.interpretations.map((interpretation, index) => (
+                      <WordAnalysis key={index} title={decomposed.word} analysis={decomposed.interpretations[index].zemberek_analysis} stem={String(decomposed.interpretations[index].morphological_features[0][0])} />
+                  ))}
                   <pre>{JSON.stringify(decomposed, null, 2)}</pre>
               </div>
-          ) }
+          )}
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}

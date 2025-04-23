@@ -31,9 +31,13 @@ def decompose_word(request):
 	# need to use zemberek to get the components of the requested word
 	# use the given language
 	# placeholder: components = ["example", "decomposition"]
-	components = get_components(word, 'Turkish')
+	interpretations = get_components(word, 'Turkish')
 	# this is a bit bulky
-	return JsonResponse({'word': word, 'components': components, 'language': language})
+	return JsonResponse({
+		'word': word, 
+		'interpretations': interpretations, 
+		'language': language
+	})
 
 def get_components(word, language):
 	# use zemberek
