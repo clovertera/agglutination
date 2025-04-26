@@ -7,14 +7,13 @@ import WordAnalysis from "./components/WordAnalysis";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
-    const [count, setCount] = useState(0)
     const [word, setWord] = useState('');
     interface Features {
         [key: string]: string | string[];
     }
     interface Interpretation {
         zemberek_analysis: string;
-        morphological_features: Features[][];
+        morphological_features: Features[];
     }
     interface AnalysisData {
         word: string;
@@ -24,8 +23,7 @@ function App() {
     const [decomposed, setDecomposed] = useState<AnalysisData | null>(null);
 
     const languageOptions = [
-        'Turkish',
-        'Japanese',
+        'Turkish'
     ]
     // TODO: save for user?
     const defaultLanguage = languageOptions[0];
@@ -73,22 +71,10 @@ function App() {
               <div>
                   <h3>Decomposed Word:</h3>
                   {decomposed.interpretations.map((interpretation, index) => (
-                      <WordAnalysis key={index} title={decomposed.word} analysis={decomposed.interpretations[index].zemberek_analysis} stem={String(decomposed.interpretations[index].morphological_features[0][0])} />
+                      <WordAnalysis key={index} title={decomposed.word} list={decomposed.interpretations[index].morphological_features} />
                   ))}
-                  <pre>{JSON.stringify(decomposed, null, 2)}</pre>
               </div>
           )}
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
   )
 }

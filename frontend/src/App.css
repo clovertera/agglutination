@@ -53,3 +53,11 @@
 .flexbox-container {
     display: flex;
 }
+
+table.table-striped > thead > tr {
+    border-block-color: #ff0000;
+}
+
+table.table-striped > tbody > tr:nth-of-type(odd) > * {
+    background-color: #e5e5e5 !important;
+}

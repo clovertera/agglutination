@@ -7,18 +7,44 @@ interface Feature {
 
 interface WAProps {
 	title: string;
-	analysis: string;
 	list: Feature[];
 
 }
 
-const WordAnalysis: React.FC<WAProps> = ({ title, analysis, list }) => {
+const WordAnalysis: React.FC<WAProps> = ({ title, list }) => {
 	return (
-		<Card style={{ width: "400px" }}>
+		<Card style={{ width: "600px" }}>
 			<Card.Body>
 				<Card.Title>{title}</Card.Title>
-				<Card.Text>{analysis}</Card.Text>
-				<Card.Text>{list}</Card.Text>
+				<table className="table table-striped table-bordered">
+					<thead>
+						<tr>
+							<th>Feature</th>
+							<th>Grammatical Part</th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody>
+						{list.flatMap((feature, index) => (
+							Object.entries(feature).map(([key, value], entryIndex) => (
+								<tr key={`${index}-${entryIndex}`}>
+									<td>{key}</td>
+									<td>
+										{Array.isArray(value)
+											? value.map((v, idx) => (
+												<React.Fragment key={idx}>
+													{v}
+													<br />
+												</React.Fragment>
+											))
+										: value}
+									</td>
+									<td></td>
+								</tr>
+							))
+						))}
+					</tbody>
+				</table>
 			</Card.Body>
 		</Card>
 	)
