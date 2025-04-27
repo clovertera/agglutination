@@ -1,8 +1,8 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
 }
 
 .logo {
@@ -44,6 +44,7 @@
 
 .card {
   padding: 2em;
+  color: #ffffff;
 }
 
 .read-the-docs {
@@ -54,10 +55,16 @@
     display: flex;
 }
 
+.table {
+    --bs-table-color: #ffffff;
+    --bs-table-striped-color: #ffffff;
+}
+
 table.table-striped > thead > tr {
     border-block-color: #ff0000;
+    color: #ffffff;
 }
 
 table.table-striped > tbody > tr:nth-of-type(odd) > * {
-    background-color: #e5e5e5 !important;
+    background-color: #272728 !important;
 }

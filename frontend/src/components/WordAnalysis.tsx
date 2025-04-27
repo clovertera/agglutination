@@ -20,8 +20,8 @@ const WordAnalysis: React.FC<WAProps> = ({ title, list }) => {
 					<thead>
 						<tr>
 							<th>Feature</th>
-							<th>Grammatical Part</th>
-							<th></th>
+							<th>Part</th>
+							<th>Explanation</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -30,16 +30,9 @@ const WordAnalysis: React.FC<WAProps> = ({ title, list }) => {
 								<tr key={`${index}-${entryIndex}`}>
 									<td>{key}</td>
 									<td>
-										{Array.isArray(value)
-											? value.map((v, idx) => (
-												<React.Fragment key={idx}>
-													{v}
-													<br />
-												</React.Fragment>
-											))
-										: value}
+										{Array.isArray(value) ? value[0] : value }
 									</td>
-									<td></td>
+									<td>{Array.isArray(value) ? value[1] : "No meaning assigned."}</td>
 								</tr>
 							))
 						))}
